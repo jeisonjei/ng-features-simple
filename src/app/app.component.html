@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="grid3">
+    <div></div>
+    <div class="flex-col">
+      <app-counter [count]="count()"></app-counter>
+      <p>{{pow()}}</p>
+      <button (click)="update()">Update</button>
+    </div>
+    <div></div>
+    @if(isAlertShown){
+      <p>Counter is more than 5!</p>
+    }
+  </div>
+</div>
