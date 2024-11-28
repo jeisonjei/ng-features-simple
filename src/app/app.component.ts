@@ -1,4 +1,4 @@
-import { Component, computed, effect, signal, Signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CounterComponent } from "./components/counter/counter.component";
 
@@ -12,23 +12,11 @@ import { CounterComponent } from "./components/counter/counter.component";
 export class AppComponent {
   title = 'ng-features-simple';
 
-  count = signal(0);
-  pow:Signal<number> = computed(() => {
-    return Math.pow(this.count(), 2);
-  });
-
-  isAlertShown = false;
-
-  constructor() {
-    effect(() => {
-      if (this.count() > 5) {
-        this.isAlertShown = true;
-      }
-    })
-  }
+  count = 0;
+  pow = 0;
 
   update() {
-    this.count.set(this.count()+1);
-
+    this.count++;
+    this.pow = Math.pow(this.count, 2);
   }
 }
