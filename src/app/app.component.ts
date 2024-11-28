@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CounterComponent } from "./components/counter/counter.component";
 
@@ -6,6 +6,12 @@ import { CounterComponent } from "./components/counter/counter.component";
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, CounterComponent],
+  providers: [
+    {
+      provide: provideExperimentalZonelessChangeDetection(),
+      useValue: true,
+    }
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
